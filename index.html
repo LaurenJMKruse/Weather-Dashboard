@@ -5,9 +5,11 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <meta http-equiv='X-UA-Compatible' content='ie=edge'>
 
-        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <link rel='stylesheet' href='./style.css'>
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'/>
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+        <link rel='stylesheet' href='./style.css'/>
 
         <title>Weather Dashboard</title>
     </head>
@@ -18,8 +20,32 @@
             <h3>Accurate Weather Forecasts</h3>
         </header>
 
-        
+        <div class='container-fluid'>
+            <div class='row'>
+                <section class='search-box' class='col-lg-3'>
+                    <h5 class='location-name'>Location Search</h5>
+                    <div class='form-inline form-group'>
+                        <input class='form-control' type='text' id='location-input'/>
+                        <button class='btn btn-light btn-outline-danger' id='location-button'> <i class='fa fa-search'></i>  Location Search</button>
+                    </div>
+                    <ul class='search-history'></ul>
+                </section>
 
+                <main class='col-lg-9'>
+                    <div id='location-data'>
+                        <h3 id='location-name'>North Stamford, Connecticut</h3>
+                        <h3 id='current-date'>Friday, 12 March 2021</h3>
+                        <div id='current-conditions'></div>
+                        <div id='forecast'>
+                            <h4>5-Day Forecast</h4>
 
+                    </div>
+                    </div
+                </main>
+            </div>
+        </div>
+
+       <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+        <script src='script.js'></script>
     </body>
 </html>

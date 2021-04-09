@@ -22,30 +22,94 @@
 
         <div class='container-fluid'>
             <div class='row'>
-                <section class='search-box' class='col-lg-3'>
-                    <h5 class='location-name'>Location Search</h5>
-                    <div class='form-inline form-group'>
-                        <input class='form-control' type='text' id='location-input'/>
-                        <button class='btn btn-light btn-outline-danger' id='location-button'> <i class='fa fa-search'></i>  Location Search</button>
+                <aside class='col-md-3 search-box' id='city-panel'>
+                    <h5 class='location-name'>Find Your City</h5>
+                    
+                    <div class='form-inline form-group place-search'>
+                        <input class='form-control' type='text' id='location-input' placeholder='Enter city name'>
+                        <button class='btn btn-light btn-outline-danger form-control' id='submit-button'><i class='fa fa-search'></i></button>
                     </div>
-                    <ul class='search-history'></ul>
-                </section>
-
-                <main class='col-lg-9'>
+                    
+                    <div id='history-list'>
+                        <h5 id='recent-locations'></h5>
+                        <ul class='list-group' id='search-history'></ul>
+                </aside>
+      
+                <main class='col-lg-9' id='forecast-panel'>
                     <div id='location-data'>
-                        <h3 id='location-name'>North Stamford, Connecticut</h3>
-                        <h3 id='current-date'>Friday, 12 March 2021</h3>
-                        <div id='current-conditions'></div>
-                        <div id='forecast'>
-                            <h4>5-Day Forecast</h4>
-
-                    </div>
-                    </div
+                        <section id='current-city' class='card'>
+                            <div class='row' id='city-data'>
+                                <div id='current-place-time' class='present-weather inline-block' style='width: 40%'>
+                                    <h4 id='location-name'></h4>
+                                    <h5 id='current-date'></h5>
+                                </div>
+                                <div id='description' class='present-weather inline-block'>
+                                    <p id='present-conditions'></p>
+                                    <img id='weather-depiction'></img>
+                                </div>
+                                <div id='current-data' class=' present-weather inline-block'>
+                                    <p id='present-temperature'></p>
+                                    <p id='present-humidity'></p>
+                                    <p id='present-wind-speed'></p>
+                                    <p id='present-UV-index'></p>
+                                </div>
+                            </div>
+                        </section>
+                        <section id='5-day-forecast'>
+                            <div class='row' id='predicted-conditions'>
+                                <div id='Day-1' class='card inline-block future' style='margin-left: 15px'>
+                                    <time class='small-date'>Tuesday, 06 April 2021</time>
+                                    <p>Description</p>
+                                    <p>Image Goes Here</p>
+                                    <p>Temperature</p>
+                                    <p>Humidity</p>
+                                    <p>Wind Speed</p>
+                                    <p>UV Index</p>
+                                </div>
+                                <div id='Day-2' class='card inline-block future'>
+                                    <time class='small-date'>Wednesday, 07 April 2021</time>
+                                    <p>Description</p>
+                                    <p>Image Goes Here</p>
+                                    <p>Temperature</p>
+                                    <p>Humidity</p>
+                                    <p>Wind Speed</p>
+                                    <p>UV Index</p>
+                                </div>
+                                <div id='Day-3' class='card inline-block future'>
+                                    <time class='small-date'>Thursday, 08 April 2021</time>
+                                    <p>Description</p>
+                                    <p>Image Goes Here</p>
+                                    <p>Temperature</p>
+                                    <p>Humidity</p>
+                                    <p>Wind Speed</p>
+                                    <p>UV Index</p>
+                                </div>
+                                <div id='Day-4' class='card inline-block future'>
+                                    <time class='small-date'>Friday, 09 April 2021</time>
+                                    <p>Description</p>
+                                    <p>Image Goes Here</p>
+                                    <p>Temperature</p>
+                                    <p>Humidity</p>
+                                    <p>Wind Speed</p>
+                                    <p>UV Index</p>
+                                </div>
+                                <div id='Day-5' class='card inline-block future'>
+                                    <time class='small-date'>Saturday, 10 April 2021</time>
+                                    <p>Description</p>
+                                    <p>Image Goes Here</p>
+                                    <p>Temperature</p>
+                                    <p>Humidity</p>
+                                    <p>Wind Speed</p>
+                                    <p>UV Index</p>
+                                </div>
+                            </div>
+                        </section>
                 </main>
             </div>
         </div>
-
-       <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
-        <script src='script.js'></script>
-    </body>
+      
+        <script src='https://code.jquery.com/jquery-3.4.1.min.js'
+        integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=' crossorigin='anonymous'></script>
+        <script src='./script.js'></script>
+      </body>
 </html>

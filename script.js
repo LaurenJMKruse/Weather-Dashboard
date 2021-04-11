@@ -4,9 +4,6 @@ $(document).ready(function() {
     // *********************************************
     // A. Variables
     let cityName;
-    let queryURLforCurrentWeather;
-    let queryURLforUVIndex;
-    let queryURLforForecast;
     let returnedCurrentData;
     let returnedForecastData;
     let currentLocation;
@@ -57,10 +54,10 @@ $(document).ready(function() {
     // 04. Searching for location in API and gathering current data 
     function seekLocation(locationName) {
         cityName = locationName;
-        queryURLforCurrentWeather = 'http://api.openweathermap.org/data/2.5/weather?q=' + locationName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial'
+
         $.ajax({
             type: 'GET',
-            url: queryURLforCurrentWeather,
+            url: 'http://api.openweathermap.org/data/2.5/weather?q=' + locationName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial',
             dataType: 'json',            
         }).then (function(currentWeatherData) {
             returnedCurrentData = currentWeatherData;
@@ -99,11 +96,9 @@ $(document).ready(function() {
 
     // 06. Obtaining and adding data for current UV Index
     function seekUVIndex(latd, long) {
-        queryURLforUVIndex = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latd + '&lon=' + long  + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial';
-        
         $.ajax({
             type: 'GET',
-            url: queryURLforUVIndex,
+            url: 'https://api.openweathermap.org/data/2.5/onecall/?lat=' + latd + '&lon=' + long  + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial',
             dataType: 'json'
         }).then (function(incomingData) {
                        
@@ -132,10 +127,9 @@ $(document).ready(function() {
 
     // 07. Gathering forecast data 
     function seekForecast(placeName) {
-        queryURLforForecast = 'http://api.openweathermap.org/data/2.5/forecast?q=' + placeName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial'
         $.ajax({
             type: 'GET',
-            url: queryURLforForecast,
+            url: 'http://api.openweathermap.org/data/2.5/forecast/?q=' + placeName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial',
             dataType: 'json',            
         }).then (function(forecastData) {
             returnedForecastData = forecastData;

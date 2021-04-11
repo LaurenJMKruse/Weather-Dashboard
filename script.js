@@ -57,7 +57,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/weather/?q=" + locationName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
+            url: "http://api.openweathermap.org/data/2.5/weather/?q=" + locationName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
             dataType: "json",            
         }).then (function(currentWeatherData) {
             returnedCurrentData = currentWeatherData;
@@ -88,7 +88,7 @@ $(document).ready(function() {
         
         // Populate conditions
         currentConditions = $('#present-conditions').text(returnedCurrentData.weather[0].description);
-        currentWeatherIcon = $("#weather-depiction").attr("src", "https://openweathermap.org/img/w/" + returnedCurrentData.weather[0].icon + ".png");
+        currentWeatherIcon = $("#weather-depiction").attr("src", "http://openweathermap.org/img/w/" + returnedCurrentData.weather[0].icon + ".png");
         currentTemperature = $('#present-temperature').text(`Temperature: ${returnedCurrentData.main.temp} °F`);
         currentHumidity = $('#present-humidity').text(`Humidity: ${returnedCurrentData.main.humidity}%`);
         currentWindSpeed = $('#present-wind-speed').text(`Wind Speed: ${returnedCurrentData.wind.speed} mph`);      
@@ -98,7 +98,7 @@ $(document).ready(function() {
     function seekUVIndex(latd, long) {
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/onecall/?lat=" + latd + "&lon=" + long  + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
+            url: "http://api.openweathermap.org/data/2.5/onecall/?lat=" + latd + "&lon=" + long  + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
             dataType: "json"
         }).then (function(incomingData) {
                        
@@ -129,7 +129,7 @@ $(document).ready(function() {
     function seekForecast(placeName) {
         $.ajax({
             type: "GET",
-            url: "https://api.openweathermap.org/data/2.5/forecast/?q=" + placeName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
+            url: "http://api.openweathermap.org/data/2.5/forecast/?q=" + placeName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
             dataType: "json",            
         }).then (function(forecastData) {
             returnedForecastData = forecastData;

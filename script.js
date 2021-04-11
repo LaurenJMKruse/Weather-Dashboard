@@ -98,7 +98,7 @@ $(document).ready(function() {
     function seekUVIndex(latd, long) {
         $.ajax({
             type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/uvi/?appid=5a8f172622a946ab1036f252f6d9db73&lat" + latd + "&lon=" + long,
+            url: "http://api.openweathermap.org/data/2.5/onecall/?lat=" + latd + "&lon=" + long  + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
             dataType: "json"
         }).then (function(incomingData) {
                        

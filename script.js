@@ -84,7 +84,8 @@ $(document).ready(function() {
         // Populate current city name
         $('#recent-locations').text('Recent Locations');
         currentLocation = $('#location-name').text(cityName);
-       
+        console.log(`Populating data for ${cityName}`);
+
        // Populate date
         currentDate = $('#current-date').text(new Date().toLocaleDateString());
         
@@ -147,7 +148,7 @@ $(document).ready(function() {
         });
     };
     
-    // 07. Assembling 5-day forecast
+    // 08. Assembling 5-day forecast
     function buildForecast(returnedForecastData) {        
         // Ensure forecast panel clear of any previous data
         $('#predicted-conditions').empty();
@@ -157,28 +158,16 @@ $(document).ready(function() {
             // Seek forecast for next 5 days at noon; build and populate elements
             if (returnedForecastData.list[i].dt_txt.indexOf('12:00:00') !== -1) {
                 let dayBlock = $('<div>').addClass('card inline-block future').css('margin-left', '15px');
-                let forecastDate = $('<h6>').addClass('card-title').text(new Date(returnedForecastData.list[i].dt_txt).toLocaleDateString());
+                let forecastDate = $('<h6>').addClass('card-title small-date').text(new Date(returnedForecastData.list[i].dt_txt).toLocaleDateString());
                 let forecastIcon = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + returnedForecastData.list[i].weather[0].icon + '.png');
-                let forecastTemperature = $('<p>').addClass('card-text').text(`Temperature: ${returnedForecastData.list[i].main.temp} °F`);
-                let forecastHumidity = $('<p>').addClass('card-text').text(`Humidity: ${returnedForecastData.list[i].main.humidity}%`);
+                let forecastTemperature = $('<p>').addClass('card-text forecast-data').text(`Temperature: ${returnedForecastData.list[i].main.temp} °F`);
+                let forecastHumidity = $('<p>').addClass('card-text forecast-data').text(`Humidity: ${returnedForecastData.list[i].main.humidity}%`);
             
                 dayBlock.append(forecastDate, forecastIcon, forecastTemperature, forecastHumidity);
                 $('#predicted-conditions').append(dayBlock);
             }            
         }
     };
-
-    // // 08. Removing values from forecast panel to prepare for different location
-    // function clearValues() {
-    //     currentLocation.val('');
-    //     currentDate.val('');
-    //     currentConditions.val('');
-    //     currentWeatherIcon.val('');
-    //     currentTemperature.val('');
-    //     currentHumidity.val('');
-    //     currentWindSpeed.val('');
-    //     currentUVIndex.val('');     
-    // };
 
     // 09. Seeking current conditions from city in search history
     $('#search-history').on('click', 'li', function() {

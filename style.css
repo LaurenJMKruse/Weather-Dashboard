@@ -30,6 +30,10 @@ body {
   height: 200px;
 }
 
+.city-list-title {
+  font-weight: bold;
+}
+
 .present-weather {
   box-sizing: border-box;
   width: 25%;
@@ -49,6 +53,12 @@ body {
   height: 30px;
 }
 
+.forecast-title {
+  margin-top: 20px;
+  color: black;
+  font-weight: bold;
+}
+
 #predicted-conditions {
   box-sizing: border-box;
   width: 100%;
@@ -59,10 +69,15 @@ body {
   box-sizing: border-box;
   width: 18.08%;
   margin-left: 17px;
-  height: 400px;
+  height: 220px;
   padding: 10px;
 }
 
 .small-date {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.forecast-data {
   font-size: 14px;
 }

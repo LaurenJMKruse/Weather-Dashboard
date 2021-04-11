@@ -56,9 +56,9 @@ $(document).ready(function() {
         cityName = locationName;
 
         $.ajax({
-            type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/weather/?q=" + locationName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
-            dataType: "json",            
+            type: 'GET',
+            url: 'https://api.openweathermap.org/data/2.5/weather/?q=' + locationName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial',
+            dataType: 'json',            
         }).then (function(currentWeatherData) {
             returnedCurrentData = currentWeatherData;
             
@@ -88,7 +88,7 @@ $(document).ready(function() {
         
         // Populate conditions
         currentConditions = $('#present-conditions').text(returnedCurrentData.weather[0].description);
-        currentWeatherIcon = $("#weather-depiction").attr("src", "http://openweathermap.org/img/w/" + returnedCurrentData.weather[0].icon + ".png");
+        currentWeatherIcon = $('#weather-depiction').attr('src', 'https://openweathermap.org/img/w/' + returnedCurrentData.weather[0].icon + '.png');
         currentTemperature = $('#present-temperature').text(`Temperature: ${returnedCurrentData.main.temp} °F`);
         currentHumidity = $('#present-humidity').text(`Humidity: ${returnedCurrentData.main.humidity}%`);
         currentWindSpeed = $('#present-wind-speed').text(`Wind Speed: ${returnedCurrentData.wind.speed} mph`);      
@@ -97,9 +97,9 @@ $(document).ready(function() {
     // 06. Obtaining and adding data for current UV Index
     function seekUVIndex(latd, long) {
         $.ajax({
-            type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/onecall/?lat=" + latd + "&lon=" + long  + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
-            dataType: "json"
+            type: 'GET',
+            url: 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latd + '&lon=' + long + '&appid=5a8f172622a946ab1036f252f6d9db73',      
+            dataType: 'json'
         }).then (function(incomingData) {
                        
             console.log(`Data for latitude ${latd} and longitude ${long} retrieved from Open Weather Map One-Call API.`);
@@ -128,9 +128,9 @@ $(document).ready(function() {
     // 07. Gathering forecast data 
     function seekForecast(placeName) {
         $.ajax({
-            type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/forecast/?q=" + placeName + "&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial",
-            dataType: "json",            
+            type: 'GET',
+            url: 'https://api.openweathermap.org/data/2.5/forecast/?q=' + placeName + '&appid=5a8f172622a946ab1036f252f6d9db73&units=imperial',
+            dataType: 'json',            
         }).then (function(forecastData) {
             returnedForecastData = forecastData;
             
@@ -153,7 +153,7 @@ $(document).ready(function() {
             if (returnedForecastData.list[i].dt_txt.indexOf('12:00:00') !== -1) {
                 let dayBlock = $('<div>').addClass('card inline-block future').css('margin-left', '15px');
                 let forecastDate = $('<h6>').addClass('card-title small-date').text(new Date(returnedForecastData.list[i].dt_txt).toLocaleDateString());
-                let forecastIcon = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + returnedForecastData.list[i].weather[0].icon + '.png');
+                let forecastIcon = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + returnedForecastData.list[i].weather[0].icon + '.png');
                 let forecastTemperature = $('<p>').addClass('card-text forecast-data').text(`Temperature: ${returnedForecastData.list[i].main.temp} °F`);
                 let forecastHumidity = $('<p>').addClass('card-text forecast-data').text(`Humidity: ${returnedForecastData.list[i].main.humidity}%`);
             

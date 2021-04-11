@@ -153,7 +153,7 @@ $(document).ready(function() {
             if (returnedForecastData.list[i].dt_txt.indexOf('12:00:00') !== -1) {
                 let dayBlock = $('<div>').addClass('card inline-block future').css('margin-left', '15px');
                 let forecastDate = $('<h6>').addClass('card-title small-date').text(new Date(returnedForecastData.list[i].dt_txt).toLocaleDateString());
-                let forecastIcon = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + returnedForecastData.list[i].weather[0].icon + '.png');
+                let forecastIcon = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + returnedForecastData.list[i].weather[0].icon + '.png');
                 let forecastTemperature = $('<p>').addClass('card-text forecast-data').text(`Temperature: ${returnedForecastData.list[i].main.temp} °F`);
                 let forecastHumidity = $('<p>').addClass('card-text forecast-data').text(`Humidity: ${returnedForecastData.list[i].main.humidity}%`);
             

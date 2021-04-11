@@ -19,11 +19,6 @@ SO THAT I can plan a trip accordingly*
 * Runs in the browser
 <br>
 
-## Issues
-* While this application works fine on my local computer, I am encountering the below error message. Everything I have tried has failed to resolve this. The below image illustrates the error message.
-![Error](./BrowserError.jpg)
-<br>
-
 ## Link to site
 https://laurenjmkruse.github.io/Weather-Dashboard/
 <br>
